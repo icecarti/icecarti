@@ -1,10 +1,8 @@
 import typing as tp
 
-
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
     Encrypts plaintext using a Caesar cipher.
-
     >>> encrypt_caesar("PYTHON")
     'SBWKRQ'
     >>> encrypt_caesar("python")
@@ -14,15 +12,25 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
-    ciphertext = ""
-    # PUT YOUR CODE HERE
-    return ciphertext
+    ciphertext = []
+    alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    n=len(alf)
+    for i in plaintext:
+        index = alf.find(i.upper())
+        if index != -1:
+            index = (index + shift) % n
+            if i.isupper():
+                ciphertext.append(alf[index])
+            elif i.islower():
+                ciphertext.append(alf[index].lower())
+        else:
+            ciphertext.append(i)
+    return ''.join(ciphertext)
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
     Decrypts a ciphertext using a Caesar cipher.
-
     >>> decrypt_caesar("SBWKRQ")
     'PYTHON'
     >>> decrypt_caesar("sbwkrq")
@@ -32,9 +40,20 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
-    plaintext = ""
-    # PUT YOUR CODE HERE
-    return plaintext
+    plaintext = []
+    alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    n = len(alf)
+    for i in ciphertext:
+        index = alf.find(i.upper())
+        if index != -1:
+            index = (index - shift) % n
+            if i.isupper():
+                plaintext.append(alf[index])
+            elif i.islower():
+                plaintext.append(alf[index].lower())
+        else:
+            plaintext.append(i)
+    return ''.join(plaintext)
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
