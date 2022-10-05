@@ -17,7 +17,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ciphertext = ""
     chipher = []
     alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    n=len(alf)
+    n = len(alf)
     for i in plaintext:
         index = alf.find(i.upper())
         if index != -1:

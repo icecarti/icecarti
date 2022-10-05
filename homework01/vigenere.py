@@ -16,7 +16,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     for i in plaintext:
         index = alf.find(i.upper())
         if index != -1:
-            index = (index + alf.find(keyword[k].upper()) ) % n
+            index = (index + alf.find(keyword[k].upper())) % n
             if i.isupper():
                 ciphertext.append(alf[index])
             elif i.islower():

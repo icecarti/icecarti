@@ -21,7 +21,7 @@ def is_prime(n: int) -> bool:
         i += 1
     if i * i == n:
         k += 1
-    if k ==2 :
+    if k == 2 :
         return True
     else:
         return False
@@ -95,7 +95,7 @@ def encrypt(pk: tp.Tuple[int, int], plaintext: str) -> tp.List[int]:
     key, n = pk
     # Convert each letter in the plaintext to numbers based on
     # the character using a^b mod m
-    cipher = [(ord(char) ** key) % n for char in plaintext]
+    cipher = [(ord(char)**key) % n for char in plaintext]
     # Return the array of bytes
     return cipher
 
@@ -104,7 +104,7 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     # Unpack the key into its components
     key, n = pk
     # Generate the plaintext based on the ciphertext and key using a^b mod m
-    plain = [chr((char ** key) % n) for char in ciphertext]
+    plain = [chr((char**key) % n) for char in ciphertext]
     # Return the array of bytes as a string
     return "".join(plain)
 
