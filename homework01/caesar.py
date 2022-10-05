@@ -14,7 +14,8 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
-    ciphertext = []
+    ciphertext = ""
+    chipher = []
     alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     n=len(alf)
     for i in plaintext:
@@ -22,12 +23,13 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
         if index != -1:
             index = (index + shift) % n
             if i.isupper():
-                ciphertext.append(alf[index])
+                chipher.append(alf[index])
             elif i.islower():
-                ciphertext.append(alf[index].lower())
+                chipher.append(alf[index].lower())
         else:
-            ciphertext.append(i)
-    return ''.join(ciphertext)
+            chipher.append(i)
+    ciphertext = "".join(chipher)
+    return ciphertext
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
@@ -43,7 +45,8 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
-    plaintext = []
+    plaintext = ""
+    chipher = []
     alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     n = len(alf)
     for i in ciphertext:
@@ -51,12 +54,13 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
         if index != -1:
             index = (index - shift) % n
             if i.isupper():
-                plaintext.append(alf[index])
+                chipher.append(alf[index])
             elif i.islower():
-                plaintext.append(alf[index].lower())
+                chipher.append(alf[index].lower())
         else:
-            plaintext.append(i)
-    return ''.join(plaintext)
+            chipher.append(i)
+    plaintext = "".join(chipher)
+    return plaintext
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
