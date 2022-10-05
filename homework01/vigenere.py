@@ -11,7 +11,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
     ciphertext = []
     alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    n = len(alf)
+    n=len(alf)
     k=0
     for i in plaintext:
         index = alf.find(i.upper())
@@ -26,7 +26,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
         k=k+1
         if k==len(keyword):
             k=0
-    return ''.join(ciphertext)
+    return "".join(ciphertext)
 
 
 def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
@@ -57,4 +57,4 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
         k = k + 1
         if k == len(keyword):
             k = 0
-    return ''.join(plaintext)
+    return "".join(plaintext)
