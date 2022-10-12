@@ -45,22 +45,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
-    plaintext = ""
-    chipher = []
-    alf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    n = len(alf)
-    for i in ciphertext:
-        index = alf.find(i.upper())
-        if index != -1:
-            index = (index - shift) % n
-            if i.isupper():
-                chipher.append(alf[index])
-            elif i.islower():
-                chipher.append(alf[index].lower())
-        else:
-            chipher.append(i)
-    plaintext = "".join(chipher)
-    return plaintext
+    return encrypt_caesar(ciphertext, -shift)
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
