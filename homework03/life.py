@@ -169,9 +169,9 @@ class GameOfLife:
         """
         Прочитать состояние клеток из указанного файла.
         """
-        f = open(filename, "r")
-        h = sum(1 for line in f)
-        f.close()
+        F = open(filename, "r")
+        h = sum(1 for line in F)
+        F.close()
         f = open(filename, "r")
         result = GameOfLife((len(f.readline()), h))
         a = []
