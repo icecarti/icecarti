@@ -173,8 +173,9 @@ class GameOfLife:
         h = sum(1 for line in f)
         f.close()
         f = open(filename, "r")
+        x=len(s)
         s = f.readline()
-        result = GameOfLife((len(s), h))
+        result = GameOfLife((x, h))
         a = []
         while s != "":
             b = []
