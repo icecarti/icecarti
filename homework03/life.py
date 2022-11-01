@@ -173,13 +173,14 @@ class GameOfLife:
         h = sum(1 for line in f)
         f.close()
         f = open(filename, "r")
-        result = GameOfLife((len(f.readline()), h))
+        s = f.readline()
+        result = GameOfLife((len(s), h))
         a = []
         while s != "":
-            row = []
+            b = []
             for i in s:
-                row.append(ord(i) - ord("0"))
-            a.append(row)
+                b.append(ord(i) - ord("0"))
+            a.append(b)
             s = f.readline()
         result.curr_generation = a
         return result
