@@ -173,18 +173,16 @@ class GameOfLife:
         h = sum(1 for line in f)
         f.close()
         f = open(filename, "r")
-        s = f.readline()
-        w = len(s)
-        res = GameOfLife((w, h))
+        result = GameOfLife((len(f.readline()), h))
         a = []
         while s != "":
-            b = []
+            row = []
             for i in s:
-                b.append(ord(i) - ord("0"))
-            a.append(b)
+                row.append(ord(i) - ord("0"))
+            a.append(row)
             s = f.readline()
-        res.curr_generation = a
-        return res
+        result.curr_generation = a
+        return result
 
     def save(self, filename: pathlib.Path) -> None:
         """
